@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 // Also, students should be in descending order based on their score.
 
 app.get("/results", (req, res) => {
-  students = students.filter((elem) => {
+  newStudents = students.filter((elem) => {
     return elem.hasPassed;
   }).sort((a,b) => {
     if(a.score > b.score) return -1;
@@ -30,7 +30,7 @@ app.get("/results", (req, res) => {
     else return 0;
   });
 
-  res.render("results.hbs", {students});
+  res.render("results.hbs", {newStudents});
 });
 
 app.listen(process.env.PORT, () =>
